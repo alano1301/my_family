@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alano Family</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header style="padding: 15px 20px; justify-content: center; align-items: center;">
+    
+    <div style="display: flex; align-items: center; gap: 20px; width: 100%; justify-content: space-between; max-width: 1200px;">
+        
+        <a href="{{ url_for('home') }}" style="text-decoration: none; font-family: 'Arial Black', sans-serif; font-size: 18px; color: #ffffff; line-height: 1;">
+            MY<br>FAMILY
+        </a>
+
+        <nav style="display: flex; gap: 15px; font-weight: bold; font-size: 12px; flex-wrap: wrap; justify-content: flex-end;">
+            <a href="{{ url_for('home') }}" style="color: #ffffff; text-decoration: none;">HOME</a>
+            {% if 'loggedin' in session %}
+                {% if session.get('role') == 'admin' %}
+                    <a href="{{ url_for('admin_dashboard') }}" style="color: #121212; text-decoration: none;">ADMIN</a>
+                {% endif %}
+                <a href="{{ url_for('dashboard') }}" style="color: #ffffff; text-decoration: none;">DASHBOARD</a>
+                <a href="{{ url_for('logout') }}" style="color: #ffffff; text-decoration: none;">LOGOUT</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" style="color: #ffffff; text-decoration: none;">LOGIN</a>
+                <a href="{{ url_for('signup') }}" style="color: #ffffff; text-decoration: none;">SIGN UP</a>
+            {% endif %}
+        </nav>
+    </div>
+</header>
+
+    <main style="max-width: 800px; margin: 50px auto; padding: 30px;">
+    <div class="content-container" style="background-color: rgba(18, 18, 18, 0.8); padding: 40px; border-radius: 12px; border: 1px solid #333;">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" style="color: #e57373; font-size: 14px; margin-bottom: 15px;">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </div>
+</main>
+
+
+</body>
+</html>
