@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Update Profile</h2>
+    <p style="color: var(--text-muted); font-size: 13px;">Manage your account details below.</p>
+    
+    <form action="{{ url_for('update_profile') }}" method="POST">
+        <label style="text-align: left; font-size: 12px; color: var(--accent-color);">NEW USERNAME</label>
+        <input type="text" name="username" value="{{ username }}" minlength="4" required>
+        
+        <label style="text-align: left; font-size: 12px; color: var(--accent-color); margin-top: 10px;">NEW PASSWORD (LEAVE BLANK TO KEEP CURRENT)</label>
+        <input type="password" name="new_password" placeholder="Min. 8 characters" minlength="8">
+        
+        <button type="submit" style="margin-top: 20px;">SAVE CHANGES</button>
+    </form>
+    
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('dashboard') }}" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">← Back to Dashboard</a>
+    </div>
+{% endblock %}

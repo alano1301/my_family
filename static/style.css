@@ -1,0 +1,190 @@
+/* static/style.css */
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --accent-color: #d4a373; /* A soft earth tone */
+    --text-main: #ffffff;
+    --text-muted: #b0b0b0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Container */
+.container {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 50px;
+    width: 350px;
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    background: #2c2c2c;
+    border: 1px solid #444;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: 2px solid var(--accent-color);
+    border-color: transparent;
+}
+
+button {
+    background: var(--accent-color);
+    color: #121212;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background: #bc8a5f;
+    transform: translateY(-2px);
+}
+
+/* Flash Messages */
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+
+/* static/style.css */
+.badge-admin {
+    background-color: var(--accent-color); /* Pastel Brown */
+    color: #121212;
+}
+
+.badge-user {
+    background-color: #444; /* Dark Grey */
+    color: #ffffff;
+}
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* static/style.css */
+
+/* Target the whole body */
+body {
+    /* 1. Add the slightly dim overlay (black with 60% opacity) */
+    background-image: linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.6)), 
+                      url('images/homepage.jpg');
+    
+    /* 2. Style the background to fit the screen */
+    background-size: cover;        /* Scale image to fill screen */
+    background-position: center;   /* Center the image */
+    background-repeat: no-repeat;  /* Don't repeat the image */
+    background-attachment: fixed;  /* Make it scroll with the page */
+    
+    /* 3. Ensure full height and remove default margins */
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive Content Container */
+main {
+    width: 95%;            /* Use almost full width on small screens */
+    max-width: 800px;      /* But never get wider than 800px on big screens */
+    margin: 20px auto;     /* Less top margin on mobile */
+    padding: 10px;
+}
+
+.content-container {
+    padding: 20px;         /* Smaller padding on mobile */
+    box-sizing: border-box; /* Ensures padding doesn't push width over 100% */
+}
+
+/* Make Tables Scrollable on Mobile */
+table {
+    display: block;
+    overflow-x: auto;      /* Adds a scrollbar only if the table is too wide */
+    white-space: nowrap;   /* Keeps columns from squishing */
+}
+
+/* Make Inputs Full Width */
+input, select, button {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+.flash-success { color: #81c784; }
+.flash-danger { color: #e57373; }
+
+
+
+
+@media screen and (max-width: 600px) {
+    body {
+        /* Adjust background position so faces are more likely to be visible */
+        background-position: 70% center; 
+    }
+    
+    header {
+        padding: 10px;
+    }
+    
+    header a {
+        font-size: 16px; /* Smaller logo text for mobile */
+    }
+}
